@@ -1,11 +1,23 @@
 var mongoose = require('mongoose');
 
-module.exports = mongoose.model('confusionApp', {
-    text: {
+module.exports = mongoose.model('promotions', {
+    name: {
         type: String,
         default: ''
     },
-    text1: {
+    image: {
+        type: String,
+        default: ''
+    },
+    label: {
+        type: String,
+        default: ''
+    },
+    price: {
+        type: String,
+        default: ''
+    },
+    description: {
         type: String,
         default: ''
     }

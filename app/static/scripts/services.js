@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('confusionApp')
-.constant("baseURL","mongodb://tst:Aireverse2@ds011873.mlab.com:11873/heroku_fqk7wsks")
+.constant("baseURL","http://localhost:8081/")
 
 .service('menuFactory', ['$resource', 'baseURL', function($resource,baseURL) {
   this.getDishes = function(){
@@ -9,7 +9,7 @@ angular.module('confusionApp')
   };
 
   this.getPromotions = function(){
-      return $resource(baseURL+"/api/promotions/:id",null,{'update':{method:'PUT' }});
+      return $resource(baseURL+"api/promotions/:id",null,{'update':{method:'PUT' }});
   };
 
   this.getDish = function (index) {

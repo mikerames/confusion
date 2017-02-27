@@ -1,7 +1,7 @@
 var Todo = require('./models/promotions');
 
 function getPromotions(res) {
-    Todo.find(function (err, todos) {
+    Todo.find(function (err, promotions) {
 
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) {
@@ -16,7 +16,7 @@ module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
     // get all todos
-    app.get('/api/promotions', function (req, res) {
+    app.get('/api/promotions/', function (req, res) {
         // use mongoose to get all todos in the database
         getPromotions(res);
     });
