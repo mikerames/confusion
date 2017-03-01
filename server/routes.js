@@ -40,7 +40,7 @@ module.exports = function (app) {
     });
 
  app.get('/api/dishes/:id', function (req, res) {
-        Todo.findById(req.params.id, function (err, post) {
+        Dishes.findById(req.params.id, function (err, post) {
 
             console.log(req.params.id);
 
