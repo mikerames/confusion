@@ -3,13 +3,13 @@ angular.module('confusionApp')
 
 .controller('IndexController', ['$scope', 'menuFactory', function($scope, menuFactory) {  
 
-  $scope.dish = [];
-  $scope.showDish = false;
+  $scope.promotion = [];
+  $scope.showPromotion = false;
   $scope.message="Loading ...";
-  $scope.dish = menuFactory.getPromotions().get({id:0}).$promise.then(
+  $scope.promotion = menuFactory.getPromotions().get({id:'58b3694461296a7cfc7ab739'}).$promise.then(
     function(response){
-      $scope.dish = response;
-      $scope.showDish = true;
+      $scope.promotion = response;
+      $scope.showPromotion = true;
     },
     function(response) {
       $scope.message = "Error: "+response.status + " " + response.statusText;

@@ -1,24 +1,12 @@
+// Load mongoose package
 var mongoose = require('mongoose');
 
-module.exports = mongoose.model('promotions', {
-    name: {
-        type: String,
-        default: ''
-    },
-    image: {
-        type: String,
-        default: ''
-    },
-    label: {
-        type: String,
-        default: ''
-    },
-    price: {
-        type: String,
-        default: ''
-    },
-    description: {
-        type: String,
-        default: ''
-    }
+var PromotionsSchema = new mongoose.Schema({
+  name: String,
+  image: String,
+  label: String,
+  price: String,
+  description: String
 });
+
+module.exports = mongoose.model('promotions', PromotionsSchema);

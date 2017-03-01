@@ -1,25 +1,50 @@
+var express = require('express');
+var router = express.Router();
+var mongoose = require('mongoose');
 var Todo = require('./models/promotions');
 
-function getPromotions(res) {
-    Todo.find(function (err, promotions) {
 
+function getPromotions(res) {
+    Todo.find(function (err, post) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) {
             res.send(err);
         }
-
-        res.json(promotions); // return all todos in JSON format
+        res.json(post); // return all todos in JSON format
     });
 };
 
+
+function getPromotionsById(res) {
+console.log('getPromotionsById');
+
+  Todo.findById('58b3694461296a7cfc7ab739', function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+    
+}
+
+//middleware
 module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
     // get all todos
     app.get('/api/promotions/', function (req, res) {
+    //console.log(req);
+
         // use mongoose to get all todos in the database
         getPromotions(res);
+
     });
+
+app.get('/api/promotions/:id', function (req, res) {
+    Todo.findById(req.params.id, function (err, post) {
+        if (err) return next(err);
+        res.json(post);
+    });
+});
+
 
     // create todo and send back all todos after creation
     app.post('/api/todos', function (req, res) {
@@ -53,6 +78,7 @@ module.exports = function (app) {
 
     // application -------------------------------------------------------------
     app.get('*', function (req, res) {
-        res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+        console.log(__dirname);
+        res.sendFile(__dirname + '/app/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
 };
