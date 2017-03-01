@@ -6,7 +6,7 @@ angular.module('confusionApp')
 
 .service('menuFactory', ['$resource', 'baseURL', function($resource,baseURL) {
   this.getDishes = function(){
-      return $resource(baseURL+"dishes/:id",null,{'update':{method:'PUT' }});
+      return $resource(baseURL+"api/dishes/:id",null,{'update':{method:'PUT' }});
   };
 
   this.getPromotions = function(){

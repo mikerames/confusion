@@ -75,7 +75,11 @@ $scope.toggleDetails = function() {
 //$scope.dish = {};
 $scope.showDish = false;
 $scope.message="Loading ...";
-$scope.dish = menuFactory.getDishes().get({id:parseInt($stateParams.id,10)}).$promise.then(
+
+console.log($stateParams.id);
+
+//$scope.dish = menuFactory.getDishes().get({id:parseInt($stateParams.id,10)}).$promise.then(
+  $scope.dish = menuFactory.getDishes().get({id:$stateParams.id}).$promise.then(
   function(response){
     $scope.dish = response;
     $scope.showDish = true;
