@@ -1,2 +1,2 @@
 # confusion
-AngularJS + NodeJS
+AngularJS + NodeJS + Mongoose
