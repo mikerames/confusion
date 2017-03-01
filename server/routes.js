@@ -19,7 +19,8 @@ function getPromotions(res) {
 function getPromotionsById(res) {
 console.log('getPromotionsById');
 
-  Todo.findById('58b3694461296a7cfc7ab739', function (err, post) {
+  //Todo.findById('58b3694461296a7cfc7ab739', function (err, post) {
+    Todo.findById('58b74d2cf36d281facb7c53e', function (err, post) {      
     if (err) return next(err);
     res.json(post);
   });
