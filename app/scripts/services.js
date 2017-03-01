@@ -2,7 +2,9 @@
 angular.module('confusionApp')
 
 
-.constant("baseURL","http://localhost:8081/")
+//.constant("baseURL","http://localhost:8081/")
+.constant("baseURL","https://shielded-ravine-55061.herokuapp.com/")
+
 
 .service('menuFactory', ['$resource', 'baseURL', function($resource,baseURL) {
   this.getDishes = function(){
