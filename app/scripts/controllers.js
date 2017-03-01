@@ -6,7 +6,7 @@ angular.module('confusionApp')
   $scope.promotion = [];
   $scope.showPromotion = false;
   $scope.message="Loading ...";
-  $scope.promotion = menuFactory.getPromotions().get({id:'58b74d1af36d281facb7c50e'}).$promise.then(
+  $scope.promotion = menuFactory.getPromotions().get({id:'58b3694461296a7cfc7ab739'}).$promise.then(
     function(response){
       $scope.promotion = response;
       $scope.showPromotion = true;
